@@ -3,7 +3,7 @@ import { clockwisePump } from '../assets/clockwisePump';
 import { counterclockwisePump } from '../assets/counterclockwisePump';
 import { SPEED } from "../utils/constants";
 
-const Pump = ({ speed, isClockwise }) => {
+const PumpAnimation = ({ speed, isClockwise }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const Pump = ({ speed, isClockwise }) => {
   );
 };
 
-export default Pump;
+export default PumpAnimation;

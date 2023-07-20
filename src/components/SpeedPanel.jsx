@@ -5,9 +5,9 @@ const SpeedPanel = ({ speed, isTemp }) => {
   return (
     <div className='display-panel'>
       <Display 
-        value={speed} 
+        value={parseInt(speed)} 
         count={3} 
-        height={250}
+        height={180}
         color={isTemp ? 'red' : 'green'}
         skew
       />

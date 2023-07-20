@@ -6,3 +6,8 @@ export const SPEED = {
   LEVEL_FOUR: 50,
   LEVEL_FIVE: 20,
 };
+
+export const PUMP_TYPE = {
+  WATER_PUMP: 'PUMP-WATER',
+  OIL_PUMP: 'PUMP-OIL',
+};

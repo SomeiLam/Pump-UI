@@ -6,6 +6,7 @@ import activeClockwiseIcon from '../assets/activeClockwiseIcon.svg';
 import activeCounterclockwiseIcon from '../assets/activeCounterClockwiseIcon.svg';
 
 const ControlButtons = ({ 
+  pumpType,
   speedValue,
   tempValue,
   showTempValue,
@@ -14,21 +15,32 @@ const ControlButtons = ({
   isClockwise,
   handleToggle
 }) => {
+
+  const handleChangeDirection = () => {
+    handleToggle(pumpType)
+  };
+
   return (
     <section className='reset-btn'>
-        {speedValue === 0 ?
+        {speedValue === 0 || speedValue === '0' ?
           <button className='disabled stop btn' disabled>
             STOP
           </button> :
-          <button className='stop btn' onClick={handleStop}>
+          <button 
+            className='stop btn' 
+            onClick={() => handleStop(pumpType)}>
             STOP
           </button>}
         {showTempValue && tempValue !== speedValue ?
-          <button className='set btn' onClick={handleSet}>
-            SET
+          <button 
+            className='set btn' 
+            onClick={() => handleSet(pumpType)}>
+            {speedValue === 0 || speedValue === '0' 
+            ? 'START' : 'SET'}
           </button> :
           <button className='disabled set btn' disabled>
-            SET
+            {speedValue === 0 || speedValue === '0'
+            ? 'START' : 'SET'}
           </button>}
         <div className='direction-switch'>
           <img
@@ -36,15 +48,15 @@ const ControlButtons = ({
             alt='counterclockwise icon' />
           <input
             checked={isClockwise}
-            onChange={handleToggle}
+            onChange={handleChangeDirection}
             className='react-switch-checkbox'
-            id='react-switch-new'
+            id={pumpType}
             type='checkbox'
           />
           <label
             style={{ background: isClockwise }}
             className='react-switch-label'
-            htmlFor='react-switch-new'
+            htmlFor={pumpType}
           >
             <span className='react-switch-button' />
           </label>
