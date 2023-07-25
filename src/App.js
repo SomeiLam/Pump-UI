@@ -249,7 +249,7 @@ const App = () => {
         handleStop={handleStop}
         handleSet={handleSet}
         handleToggle={handleToggle}
-        isConnected={isWaterConnected} />
+        isConnected={!isConnected || isWaterConnected} />
       <Pump
         pumpType={PUMP_TYPE.OIL_PUMP}
         speedValue={oilSpeed}
@@ -261,7 +261,7 @@ const App = () => {
         handleStop={handleStop}
         handleSet={handleSet}
         handleToggle={handleToggle}
-        isConnected={isOilConnected} />
+        isConnected={!isConnected || isOilConnected} />
       {
         !isConnected && <div className='disconnected'>
           <h2>Connection Lost</h2>
